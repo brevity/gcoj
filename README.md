@@ -7,9 +7,9 @@
 
 ```
 $ gcoj \
-  --user example@email.ca \
+  --user beep@boop.ca \
   --token b333Pb00Pb33PbL0RPbL3RPS \
-  --url https://whatevs.atlassian.net \
+  --url https://fudgebuzzle.atlassian.net \
   --project RE \
   --project HW \
   --status 'To Do' \
@@ -25,9 +25,9 @@ Settings are saved in `$HOME/.brevityrc`
 # file: ~/.brevityrc
 
 gcoj:
-  user: example@email.ca
-  token: <jira_token> # should be in keychain, i know...
-  jiraUrl: https://whatevs.atlassian.net
+  user: beep@boop.ca
+  token: b333Pb00Pb33PbL0RPbL3RPS # should be in keychain, i know...
+  jiraUrl: https://fudgebuzzle.atlassian.net
   projects:
     - RE
     - MB
