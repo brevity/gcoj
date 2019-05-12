@@ -1,3 +1,4 @@
+Good feature branch names from JIRA
 ## Install
 
 `npm i -g @brevity/gcoj`
