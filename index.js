@@ -25,10 +25,9 @@ const run = async () => {
               .replace(/[^a-z0-9_-]/g, '')
               .replace(/(.*)(re)(-\d{2,4}.*)/, "$1RE$3")
 
-        const standardBranches = ['master', 'develop'];
         const choices = !input
-          ? issues.concat(standardBranches)
-          : [custom].concat(issues, standardBranches)
+          ? issues
+          : [custom].concat(issues)
 
         return new Promise(resolve => {
           resolve(choices);
