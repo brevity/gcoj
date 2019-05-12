@@ -32,9 +32,9 @@ gcoj:
     - 'RE'
     - 'MB'
   statuses:
-    - '"To Do"'
-    - '"In Progress"'
-    - '"Reopened"'
+    - 'To Do'
+    - 'In Progress'
+    - 'Reopened'
 ```
 
 Then just run
