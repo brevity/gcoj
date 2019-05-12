@@ -61,4 +61,4 @@ typings/
 .next
 
 # just a scratchfile
-.scratch
+.scratch*
