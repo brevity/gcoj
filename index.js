@@ -17,13 +17,19 @@ const run = async () => {
       name: 'branch',
       message: ':',
       source: (answers, input) => {
-        let custom = !input
-          ? ''
-          : input
-              .toLowerCase()
-              .replace(/ /g, '_')
-              .replace(/[^a-z0-9_-]/g, '')
-              .replace(/(.*)(re)(-\d{2,4}.*)/, "$1RE$3")
+        let custom = [
+          s => s.toLowerCase(),
+          s => s.replace(/ /g, '_'),
+          s => s.replace(/[^a-z0-9_-]/g, ''),
+          s => {
+            let id = ''
+            const [all = '', proj, num] = s.match(/^(\w{1,3})[-_](\d+)/) || []
+            if(proj) id = id + proj.toUpperCase()
+            if(num) id = id + '-' + num
+            id = id + s.slice(all.length)
+            return id
+          }
+        ].reduce((input, fn) => fn(input), input || '')
 
         const choices = !input
           ? issues
