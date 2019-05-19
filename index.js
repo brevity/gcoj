@@ -3,11 +3,27 @@
 const { execSync } = require('child_process')
 const inquirer = require('inquirer')
 inquirer.registerPrompt('autocomplete', require('inquirer-autocomplete-prompt'));
+const Table = require('cli-table3')
 
 const config = require('./lib/configs')
 const issuesRequest = require('./lib/issues')(config)
+const getStatuses = require('./lib/getStatuses')(config)
 
 const run = async () => {
+
+  if(config.listStatusIds){
+    const statuses = await getStatuses();
+    const table = new Table({
+      head: ['Id', 'Name'],
+      chars: {'mid': '', 'left-mid': '', 'mid-mid': '', 'right-mid': ''},
+    })
+    table.push(...Object.keys(statuses).map(key => [
+      { hAlign:'right', content: statuses[key] },
+      key
+    ]))
+    console.log(table.toString())
+    process.exit()
+  }
   const issues = await issuesRequest()
 
   return inquirer
